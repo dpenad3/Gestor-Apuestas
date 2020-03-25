@@ -6,10 +6,10 @@ CREATE TABLE public.banco
 (
     numero_tarjeta bigint NOT NULL,
     cv integer NOT NULL,
-    fecha_ven character varying COLLATE pg_catalog."default" NOT NULL,
     cupo_total integer NOT NULL,
     cupo_disp integer NOT NULL,
     tipo character varying COLLATE pg_catalog."default" NOT NULL,
+    fecha_ven date NOT NULL,
     CONSTRAINT banco_pkey PRIMARY KEY (numero_tarjeta)
 )
 
