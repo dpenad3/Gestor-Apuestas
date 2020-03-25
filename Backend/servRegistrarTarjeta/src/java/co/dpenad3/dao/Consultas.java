@@ -11,55 +11,65 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
- * @author Sala_704
+ * @author Daniela Ivonne Peña Duarte
  */
 public class Consultas {
 
-    /*public Datos registrarTarjeta(Datos obj)
+    public Datos registrarTarjeta(Datos obj)
     {
-        Connection objConexion;
+        Connection objConexion=null;
+        ResultSet rs= null;
         int resInsert = 0;
 
         try
         {
            objConexion = ConexionBD.obtenerConexionBaseDeDatos();
            
-           PreparedStatement select = objConexion.prepareStatement("SELECT cv, fecha_ven, cupo_disp FROM banco WHERE numero_tarjeta="+obj.getCedula_jugador()+";");
-           ResultSet rs = select.executeQuery();
-           System.out.println(obj.getNumero_tarjeta());
-           while(rs.next())
+           PreparedStatement select = objConexion.prepareStatement("SELECT cv, fecha_ven, cupo_disp FROM banco WHERE numero_tarjeta= ?");
+           select.setLong(1, obj.getNumero_tarjeta());
+           rs = select.executeQuery();
+           int cupo_disp=0;
+           if(rs.next())
            {
-               rs.getInt(2);
+               cupo_disp = rs.getInt("cupo_disp");
+
            }
 
-           if(rs.getInt("cv")==obj.getCv() && rs.getString("fecha_ven").equals(obj.getFecha_ven()))
+           if(rs.getInt("cv")==obj.getCv() && rs.getString("fecha_ven").equals(obj.getFecha_ven()) && cupo_disp>=obj.getDinero())
            {
-               System.out.println("Vamos bien");
                PreparedStatement insert = objConexion.prepareStatement("INSERT INTO tarjeta(cedula_jugador, numero_tarjeta, dinero) VALUES (?,?,?);");
                insert.setInt(1, obj.getCedula_jugador());
                insert.setLong(2, obj.getNumero_tarjeta());
-               insert.setInt(3, rs.getInt("cupo_disp"));
+               insert.setInt(3, obj.getDinero());
                resInsert = insert.executeUpdate();
                insert.close();
            }
            else
            {
-               System.out.println("Los datos no coinciden");
+               System.out.println("Los datos no coinciden o no hay la cantidad suficiente de cupo disponible");
            }
           
-           rs.close();
-            objConexion.close();
-
         }
 
         catch(SQLException e)
         {
+            System.out.println(e);
             System.out.println("Error al registrar Tarjeta");
         }
-
+        finally
+        {
+            try {
+                rs.close();
+                objConexion.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(Consultas.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
         if(resInsert > 0)
         {
             return obj;
@@ -68,89 +78,7 @@ public class Consultas {
         {
             return null;
         }
-    }*/
-    
-    /*public Datos registrarTarjeta(Datos obj)
-    {
-        PreparedStatement objPreparedStatement=null;
-        ResultSet objResultSet=null;
-        Connection objConexion=null;
-        int resInsert=0;
-        
-         String sqlInsert="INSERT INTO tarjeta(cedula_jugador, numero_tarjeta, dinero) VALUES(?,?,?)";
-		
-		try
-		{
-			objConexion = ConexionBD.obtenerConexionBaseDeDatos();
-			objPreparedStatement = objConexion.prepareStatement(sqlInsert);
-			
-			objPreparedStatement.setInt(1, obj.getCedula_jugador());
-			objPreparedStatement.setLong(2, obj.getNumero_tarjeta());
-			objPreparedStatement.setInt(3, 1400000);
-
-			resInsert = objPreparedStatement.executeUpdate();
-			
-			objPreparedStatement.close();
-			objConexion.close();
-			
-		}
-
-		catch(Exception e)
-		{
-			e.printStackTrace();
-		}
-		
-		if(resInsert > 0)
-		{
-			return obj;
-		}
-		else
-		{
-			return null;
-		}
-
-               
-    }*/
-    
-    public Datos registrarTarjeta(Datos obj)
-    {
-        PreparedStatement objPreparedStatement=null;
-        ResultSet objResultSet=null;
-        Connection objConexion=null;
-        
-       
-         String sqlSelect="SELECT cv FROM banco WHERE numero_tarjeta=4500344345914104;";
-		
-		try
-		{
-			objConexion = ConexionBD.obtenerConexionBaseDeDatos();
-			objPreparedStatement = objConexion.prepareStatement(sqlSelect);
-                        objResultSet= objPreparedStatement.executeQuery();
-			
-                        if(objResultSet==null)
-                        {
-                            System.out.println("Que pasa");
-                        }
-                        else
-                        {
-                            System.out.println("raro");
-                            while(objResultSet.next()){
-                            objResultSet.getInt("cv");
-                            }
-                        }
-			
-			
-			objPreparedStatement.close();
-			objConexion.close();
-			
-		}
-
-		catch(Exception e)
-		{
-                    System.out.println("Error");
-		}
-		
-		return obj;
     }
     
+   
 }

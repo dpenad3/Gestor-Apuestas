@@ -14,21 +14,20 @@ import java.sql.SQLException;
  */
 public class ConexionBD{
 
-    private static Connection conexion;
     public static ConexionBD objConexionBD;
 
         //Método que realiza la conexión a la base de datos
-	public static Connection obtenerConexionBaseDeDatos() throws SQLException {
+	public static Connection obtenerConexionBaseDeDatos(){
 	
+            Connection conexion=null;
 		try
 		{
                     Class.forName(DCM.DRIVER_BD);
-                    conexion = DriverManager.getConnection(DCM.URL_BD,DCM.USUARIO_BD,DCM.CONTRSEÑA_BD);
+                    conexion = DriverManager.getConnection(DCM.URL_BD,DCM.USUARIO_BD,DCM.CONTRASENA_BD);
                     System.out.println("Conectando.....");
                 }
 		catch(Exception e)
 		{
-			conexion.close();
 			e.printStackTrace();
 		}
 		

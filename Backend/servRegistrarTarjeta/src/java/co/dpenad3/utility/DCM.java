@@ -13,6 +13,6 @@ public class DCM {
     
    public static String URL_BD= "jdbc:postgresql://localhost:5432/proyecto";
    public static String USUARIO_BD = "postgres";
-   public static String CONTRSEÑA_BD = "Ivonne247*";
+   public static String CONTRASENA_BD = "Ivonne247*";
    public static String DRIVER_BD = "org.postgresql.Driver";
 }

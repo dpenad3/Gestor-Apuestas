@@ -5,8 +5,6 @@
  */
 package co.dpenad3.dto;
 
-import java.math.BigInteger;
-
 
 /**
  *
@@ -18,7 +16,16 @@ public class Datos {
     int cedula_jugador;
     int cv;
     String fecha_ven;
+    int dinero;
 
+    public int getDinero() {
+        return dinero;
+    }
+
+    public void setDinero(int dinero) {
+        this.dinero = dinero;
+    }
+ 
     public long getNumero_tarjeta() {
         return numero_tarjeta;
     }
@@ -43,11 +50,11 @@ public class Datos {
         this.cv = cv;
     }
 
-    public String getFecha_ven() {
+    public String  getFecha_ven() {
         return fecha_ven;
     }
 
-    public void setFecha_ven(String fecha_ven) {
+    public void setFecha_ven(String  fecha_ven) {
         this.fecha_ven = fecha_ven;
     }
     
