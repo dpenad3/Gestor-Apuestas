@@ -1,0 +1,15 @@
+<div class="container">
+    <form (submit)="tarjeta()">
+        <div class="col2">
+            <label>Número de tarjeta</label>
+            <input class="form-control" type="text" maxlength="19" name="numero_tarjeta" placeholder="Máximo 19 caracteres">
+            <label>Fecha de Vencimiento</label>
+            <input class="form-control" type="text" placeholder="YYYY-MM-DD" name="fechaVen">
+            <label>Código de seguridad</label>
+            <input class="form-control" type="text" placeholder="3 caracteres" maxlength="3" name="cv">
+            <label>Dinero</label>
+            <input class="form-control" type="text" placeholder="Dinero" length="3" name="dinero">
+            <input type="submit" name="accion" value="Registrar" />
+        </div>
+    </form>
+</div>
