@@ -8,7 +8,6 @@ import { ResTarjeta } from '../entidades/resTarjeta';
 @Injectable({
   providedIn: 'root'
 })
-
 export class OperacionesService {
 
   rutaservicio = 'http://localhost:8080/ServAuten/app/operacion/login';
@@ -17,7 +16,8 @@ export class OperacionesService {
   persona: Persona;
   miTarjeta: Tarjeta;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
  autenticar(nombre: string, clave: string): Promise<Respuesta> {
    const info = {

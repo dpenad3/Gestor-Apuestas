@@ -8,6 +8,10 @@ import { NavbarComponent } from './componentes/navbar/navbar.component';
 import { SesionComponent } from './componentes/sesion/sesion.component';
 import { RegistroComponent } from './componentes/registro/registro.component';
 import { TarjetaComponent } from './componentes/tarjeta/tarjeta.component';
+import { OperacionesService } from './servicios/operaciones.service';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -16,13 +20,17 @@ import { TarjetaComponent } from './componentes/tarjeta/tarjeta.component';
     NavbarComponent,
     SesionComponent,
     RegistroComponent,
-    TarjetaComponent
+    TarjetaComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
   ],
-  providers: [],
+  providers: [
+    OperacionesService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

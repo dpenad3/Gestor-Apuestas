@@ -32,7 +32,7 @@ export class SesionComponent implements OnInit {
 
     x.then((value: Respuesta) => {
       this.mirespuesta = value;
-      if  (this.mirespuesta.codigo === 1){
+      if  (this.mirespuesta.codigo === 1) {
         this.mipersona =  this.mirespuesta.info;
         this.servicio.persona = this.mipersona;
 
