@@ -24,11 +24,11 @@ public class Operacion {
             return false;
         }else{
             try {
-                PreparedStatement ps = conex.prepareStatement("select * from public.login where cedula=? and contrasena=? ");
+                PreparedStatement ps = conex.prepareStatement("SELECT cedula, contraseña FROM jugador where cedula=?");
                 ps.setInt(1, cedula);                
-                ps.setString(2, contrasena);
                 ResultSet rs = ps.executeQuery();
-                if (rs.next()){
+                String contrasenia= rs.getString("contraseña");
+                if (contrasenia==contrasena){
                     return true;
                 }else{
                    return false;

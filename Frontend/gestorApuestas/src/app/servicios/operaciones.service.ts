@@ -10,8 +10,8 @@ import { ResTarjeta } from '../entidades/resTarjeta';
 })
 export class OperacionesService {
 
-  rutaservicio = 'http://localhost:8080/ServAuten/app/operacion/login';
-  rutaservicioversion = 'http://172.20.74.124:8080/ServAuten/app/operacion/autenticar';
+  rutaservicio = 'http://localhost:8080/servRegistrarTarjeta/app/operacion/registrarTarjeta';
+  rutaservicioversion = 'http://localhost:8080/servRegistrarTarjeta/app/operacion/registrarTarjeta';
   rutaservicioTarjeta = 'http://localhost:8080/servRegistrarTarjeta/app/operacion/registrarTarjeta';
   persona: Persona;
   miTarjeta: Tarjeta;
@@ -35,12 +35,12 @@ export class OperacionesService {
    return this.http.post<Respuesta>(`${this.rutaservicio}`, info).toPromise();
  }
 
- registrarTarjeta(numeroTarjeta: number, cv: number, fechaVen: string, dinero: number ): Promise<ResTarjeta> {
+ registrarTarjeta(numero_tarjeta: number, cv: number, fecha_ven: string, dinero: number ): Promise<ResTarjeta> {
    const info = {
-    numeroTarjeta,
+    numero_tarjeta,
     cv,
     cedula_jugador: 1007228578,
-    fechaVen,
+    fecha_ven,
     dinero
    };
    return this.http.post<ResTarjeta>(`${this.rutaservicio}`, info).toPromise();

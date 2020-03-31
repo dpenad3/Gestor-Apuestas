@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'inicioSesion', component: SesionComponent},
   { path: 'registro', component: RegistroComponent},
   { path: 'tarjeta', component: TarjetaComponent},
-  { path: '**', redirectTo: 'inicio'},
+  { path: '**', redirectTo: 'tarjeta'},
 ];
 
 @NgModule({

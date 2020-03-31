@@ -14,6 +14,8 @@ export class SesionComponent implements OnInit {
   nombre: string;
   correo: string;
   clavew = '123';
+  cedula: number;
+  contrasenia: string;
 
   mirespuesta: Respuesta;
   mipersona: Persona;

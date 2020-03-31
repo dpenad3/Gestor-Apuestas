@@ -38,10 +38,10 @@ export class TarjetaComponent implements OnInit {
       if  (this.miRespuesta.codigo === 1) {
         this.miTarjeta =  this.miRespuesta.info;
         this.servicio.miTarjeta = this.miTarjeta;
-
+        alert (this.miRespuesta.mensajeE);
         this.router.navigate(['inicio']);
       } else {
-        alert ('Error al registrar la tarjeta');
+        alert (this.miRespuesta.mensajeE);
       }
 
     });

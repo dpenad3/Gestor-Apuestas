@@ -29,18 +29,18 @@ public class Consultas {
         try
         {
            objConexion = ConexionBD.obtenerConexionBaseDeDatos();
-           
            PreparedStatement select = objConexion.prepareStatement("SELECT cv, fecha_ven, cupo_disp FROM banco WHERE numero_tarjeta= ?");
            select.setLong(1, obj.getNumero_tarjeta());
            rs = select.executeQuery();
-           int cupo_disp=0;
+           int cupo_disp=0, cv=0;
+           String fecha=null;
            if(rs.next())
            {
                cupo_disp = rs.getInt("cupo_disp");
-
+               cv = rs.getInt("cv");
+               fecha =  rs.getString("fecha_ven");
            }
-
-           if(rs.getInt("cv")==obj.getCv() && rs.getString("fecha_ven").equals(obj.getFecha_ven()) && cupo_disp>=obj.getDinero())
+           if(cv==obj.getCv() && fecha.equals(obj.getFecha_ven()) && cupo_disp>=obj.getDinero())
            {
                PreparedStatement insert = objConexion.prepareStatement("INSERT INTO tarjeta(cedula_jugador, numero_tarjeta, dinero) VALUES (?,?,?);");
                insert.setInt(1, obj.getCedula_jugador());
