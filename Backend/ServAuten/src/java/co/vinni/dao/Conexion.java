@@ -15,9 +15,9 @@ import java.sql.DriverManager;
 
 public class Conexion {
     public Connection conectarse() {
-        String bd = "proyecto"; 
-        String usuario = "postgres"; 
-        String clave = "Ivonne247*"; 
+        String bd = "wplay"; 
+        String usuario = "demo"; 
+        String clave = "demo"; 
         try { 
             Class.forName("org.postgresql.Driver");
             Connection conexion = DriverManager.getConnection(
