@@ -16,33 +16,33 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Operacion {
-    
-   public boolean login(int cedula,String contrasena) throws SQLException{
+
+    public boolean login(int cedula, String contrasena) throws SQLException  {
         Conexion c = new Conexion();
         Connection conex = c.conectarse();
-        if (conex == null){
+        if (conex == null) {
             return false;
-        }else{
+        } else {
             try {
-                PreparedStatement ps = conex.prepareStatement("SELECT cedula, contraseña FROM jugador where cedula=?");
-                ps.setInt(1, cedula);                
+                PreparedStatement ps = conex.prepareStatement("select * from public.login where cedula=? and contrasena=? ");
+                ps.setInt(1, cedula);
+                ps.setString(2, contrasena);
+
                 ResultSet rs = ps.executeQuery();
-                String contrasenia= rs.getString("contraseña");
-                if (contrasenia==contrasena){
+                if (rs.next()) {
                     return true;
-                }else{
-                   return false;
+                } else {
+                    return false;
                 }
             } catch (Exception e) {
                 System.out.println(e);
-            }
-            finally{
-                if (conex != null){
+            } finally {
+                if (conex != null) {
                     conex.close();
                 }
-            }    
+            }
         }
         return false;
-    }     
-    
+    }
+
 }

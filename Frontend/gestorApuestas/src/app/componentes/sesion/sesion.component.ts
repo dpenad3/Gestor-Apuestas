@@ -15,7 +15,7 @@ export class SesionComponent implements OnInit {
   correo: string;
   clavew = '123';
   cedula: number;
-  contrasenia: string;
+  contrasena: string;
 
   mirespuesta: Respuesta;
   mipersona: Persona;
@@ -26,21 +26,44 @@ export class SesionComponent implements OnInit {
   }
   llamar() {
 
-    if (this.nombre === undefined || this.correo === undefined) {
+    if (this.cedula === undefined || this.contrasena === undefined) {
       alert('Los datos estan vacios');
-      return ;
+      return;
     }
-    const x: Promise<Respuesta> =  this.servicio.autenticar(this.nombre, this.correo);
+    const x: Promise<Respuesta> = this.servicio.autenticar(this.cedula, this.contrasena);
 
     x.then((value: Respuesta) => {
       this.mirespuesta = value;
-      if  (this.mirespuesta.codigo === 1) {
-        this.mipersona =  this.mirespuesta.info;
+      if (this.mirespuesta.codigo === 1) {
+        this.mipersona = this.mirespuesta.info;
         this.servicio.persona = this.mipersona;
 
         this.router.navigate(['tarjeta']);
       } else {
-        alert (' * * * * * * * * * *  *El usuario no existe');
+        alert(' * * * * * * * * * *  *El usuario no existe');
+      }
+
+    });
+
+  }
+
+  login() {
+
+    if (this.cedula === undefined || this.contrasena === undefined) {
+      alert('Los datos estan vacios');
+      return;
+    }
+    const x: Promise<Respuesta> = this.servicio.login(this.cedula, this.contrasena);
+
+    x.then((value: Respuesta) => {
+      this.mirespuesta = value;
+      if (this.mirespuesta.mensajeE === "Valores validos") {
+        this.mipersona = this.mirespuesta.info;
+        this.servicio.persona = this.mipersona;
+
+        this.router.navigate(['tarjeta']);
+      } else {
+        alert(' El usuario no existe por favor registrese para ingresar a la aplicacion');
       }
 
     });

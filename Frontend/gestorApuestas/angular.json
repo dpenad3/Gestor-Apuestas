@@ -120,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "gestorApuestas"
+    }
+  },
+  "defaultProject": "gestorApuestas",
+  "cli": {
+    "analytics": "4f700519-f881-4b6b-8295-f8b79f0d1c2c"
+  }
 }
