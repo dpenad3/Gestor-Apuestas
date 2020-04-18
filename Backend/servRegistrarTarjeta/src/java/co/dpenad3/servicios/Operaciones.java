@@ -8,6 +8,7 @@ package co.dpenad3.servicios;
 import co.dpenad3.dao.Consultas;
 import co.dpenad3.dto.Datos;
 import co.dpenad3.dto.Respuesta;
+import co.dpenad3.utility.Mensajes;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -21,6 +22,7 @@ import javax.ws.rs.core.MediaType;
  */
 @Path("operacion")
 public class Operaciones {
+    
     
     @Path("version")
     @GET
@@ -36,15 +38,15 @@ public class Operaciones {
     public Respuesta registarTarjeta(Datos datos)
     {
        Respuesta r = new Respuesta();
-        r.setCodigo(1);
-        r.setMensajeE("Tarjeta registrada");
+        r.setCodigo(Mensajes.COD_EXITO);
+        r.setMensajeE(Mensajes.MNS_EXITO_REGISTRO);
         
         Consultas cons = new Consultas();
         Datos d = cons.registrarTarjeta(datos);
         
         if (d == null){
-            r.setCodigo(0);
-            r.setMensajeE("Error al registrar la tarjeta");
+            r.setCodigo(Mensajes.COD_ERROR);
+            r.setMensajeE(Mensajes.MNS_ERROR_REGISTRO);
         }
         
         r.setInfo(d);
