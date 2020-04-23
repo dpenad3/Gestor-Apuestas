@@ -14,5 +14,5 @@ import co.dpenad3.dto.Datos;
 public interface operRegistrarTarjeta {
     
     public Datos registrarTarjeta(Datos obj);
-    public Datos darTarjeta(Datos obj);
+    public Datos darTarjeta(Datos cedula);
 }

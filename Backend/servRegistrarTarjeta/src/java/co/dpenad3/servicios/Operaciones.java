@@ -54,4 +54,26 @@ public class Operaciones {
      
     }
     
+    @Path("darTarjeta")
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Respuesta darTarjeta(Datos cedula)
+    {
+        Respuesta r = new Respuesta();
+        r.setCodigo(Mensajes.COD_EXITO);
+        r.setMensajeE(Mensajes.MNS_EXITO_OBTENER);
+        
+        Consultas cons = new Consultas();
+        Datos d = cons.darTarjeta(cedula);
+        
+        if (d == null){
+            r.setCodigo(Mensajes.COD_ERROR);
+            r.setMensajeE(Mensajes.MNS_ERROR_OBTENER);
+        }
+        
+        r.setInfo(d);
+        return r;
+     
+    }
 }

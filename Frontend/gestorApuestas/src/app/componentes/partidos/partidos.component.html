@@ -1,0 +1,22 @@
+<div class="container ">
+    <br><br>
+    <p-table [value]="partidos" [autoLayout]="true" [paginator]="true" [rows]="7" sortMode="multiple">
+        <ng-template pTemplate="header" let-col>
+            <tr>
+                <th *ngFor="let col of cols" [pSortableColumn]="col.field">
+                    {{col.header}}
+                    <p-sortIcon [field]="col.field"></p-sortIcon>
+                </th>
+                <th>Empate</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-partido>
+            <tr>
+                <td>{{partido.fecha}}</td>
+                <td>{{partido.local}} <button type="button" class="btn btn-outline-primary">{{partido.porcentaje_local}}</button></td>
+                <td>{{partido.visitante}} <button type="button" class="btn btn-outline-secondary">{{partido.porcentaje_visitante}}</button></td>
+                <td><button type="button" class="btn btn-outline-success">{{partido.porcentaje_empate}}</button></td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

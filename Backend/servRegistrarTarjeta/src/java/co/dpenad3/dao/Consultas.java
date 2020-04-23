@@ -41,7 +41,7 @@ public class Consultas implements operRegistrarTarjeta{
                     cv = rs.getInt("cv");
                     fecha =  rs.getString("fecha_ven");
                 }
-                if(cv==obj.getCv() && fecha.equals(obj.getFecha_ven()) && cupo_disp>=obj.getDinero())
+                if(cv==obj.getCv() && fecha.equals(obj.getFecha_ven()+"-31") && cupo_disp>=obj.getDinero())
                 {
                     PreparedStatement insert = objConexion.prepareStatement("INSERT INTO tarjeta(cedula_jugador, numero_tarjeta, dinero) VALUES (?,?,?);");
                     insert.setInt(1, obj.getCedula_jugador());
@@ -70,8 +70,28 @@ public class Consultas implements operRegistrarTarjeta{
         }
     }
     
-    public Datos darTarjeta(Datos obj){
-        return null;
+    public Datos darTarjeta(Datos cedula){
+        ConexionBD conn = new ConexionBD();
+        Connection objConexion = conn.obtenerConexionBaseDeDatos();
+        Datos dtos = new Datos();
+        
+        if(objConexion!=null){
+            try{
+               PreparedStatement select = objConexion.prepareStatement("SELECT numero_tarjeta, dinero FROM tarjeta where cedula_jugador=?");
+               select.setInt(1,cedula.getCedula_jugador());
+               ResultSet rs = select.executeQuery();
+               
+               if(rs.next()){
+                   dtos.setNumero_tarjeta(rs.getLong("numero_tarjeta"));
+                   dtos.setDinero(rs.getInt("dinero"));
+               }
+            }catch(SQLException e){
+                Logger.getLogger(Consultas.class.getName()).log(Level.SEVERE, "Error al obtener información de la tarjeta", e);
+            }finally{
+                conn.desConexion(objConexion);
+            }
+        }
+        return dtos;
     }
    
 }
