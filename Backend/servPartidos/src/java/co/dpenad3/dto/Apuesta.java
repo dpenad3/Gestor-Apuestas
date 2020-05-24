@@ -15,6 +15,7 @@ public class Apuesta {
     int id_partido;
     int dinero;
     float porcentaje;
+    int id_equipo;
 
     public int getId_jugador() {
         return cedula_jugador;
@@ -47,6 +48,22 @@ public class Apuesta {
     public void setPorcentaje(float porcentaje) {
         this.porcentaje = porcentaje;
     }
+
+    public int getCedula_jugador() {
+        return cedula_jugador;
+    }
+
+    public void setCedula_jugador(int cedula_jugador) {
+        this.cedula_jugador = cedula_jugador;
+    }
+
+    public int getId_equipo() {
+        return id_equipo;
+    }
+
+    public void setId_equipo(int id_equipo) {
+        this.id_equipo = id_equipo;
+    }
     
     
 }
@@ -57,6 +74,7 @@ public class Apuesta {
 //    id_partido integer NOT NULL,
 //    dinero_apuesta integer NOT NULL,
 //    porcentaje_eleccion numeric NOT NULL,
+//    id_equipo integer NOT NULL,
 //    CONSTRAINT apuesta_pkey PRIMARY KEY (id_jugador, id_partido),
 //    CONSTRAINT id_jugador FOREIGN KEY (id_jugador)
 //        REFERENCES public.jugador (cedula) MATCH SIMPLE

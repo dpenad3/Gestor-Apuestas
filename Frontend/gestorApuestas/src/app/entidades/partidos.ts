@@ -8,4 +8,7 @@ export class Partido {
     'porcentaje_local'?: number;
     'porcentaje_visitante'?: number;
     'porcentaje_empate'?: number;
+    'idLocal'?: number;
+    'idEmpate'?: number;
+    'idVisitante'?: number;
 }

@@ -37,13 +37,21 @@ public class ConApuestas implements OperApuestas{
                     dinero=rs.getInt("dinero");
                 }
                 if(obj.getDinero()<=dinero){
-                    PreparedStatement insert = objConexion.prepareStatement("INSERT INTO apuesta id_jugador, id_partido, dinero_apuesta, porcentaje_eleccion) VALUES (?, ?, ?, ?)");
+                    PreparedStatement insert = objConexion.prepareStatement("INSERT INTO apuesta(id_jugador, id_partido, dinero_apuesta, porcentaje_eleccion, id_equipo) VALUES (?, ?, ?, ?, ?)");
                     insert.setInt(1, obj.getId_jugador());
                     insert.setInt(2, obj.getId_partido());
                     insert.setInt(3, obj.getDinero());
                     insert.setFloat(4, obj.getPorcentaje());
+                    insert.setInt(5, obj.getId_equipo());
                     resInsert = insert.executeUpdate();
                     insert.close();
+                    
+                    PreparedStatement update =  objConexion.prepareStatement("UPDATE tarjeta SET dinero=? WHERE cedula_jugador=?");
+                    int totalDinero=dinero-obj.getDinero();
+                    update.setInt(1, totalDinero);
+                    update.setInt(2, obj.getId_jugador());
+                    update.executeUpdate();
+                    update.close();
                 }
                 else{
                     System.out.println("No hay suficiente cantidad de dinero");

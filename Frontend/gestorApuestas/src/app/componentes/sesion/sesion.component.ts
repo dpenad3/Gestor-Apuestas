@@ -26,11 +26,11 @@ export class SesionComponent implements OnInit {
   }
   llamar() {
 
-    if (this.nombre === undefined || this.correo === undefined) {
+    if (this.cedula === undefined || this.contrasenia === undefined) {
       alert('Los datos estan vacios');
       return ;
     }
-    const x: Promise<Respuesta> =  this.servicio.autenticar(this.nombre, this.correo);
+    const x: Promise<Respuesta> =  this.servicio.login(this.cedula, this.contrasenia);
 
     x.then((value: Respuesta) => {
       this.mirespuesta = value;
@@ -38,7 +38,7 @@ export class SesionComponent implements OnInit {
         this.mipersona =  this.mirespuesta.info;
         this.servicio.persona = this.mipersona;
 
-        this.router.navigate(['tarjeta']);
+        this.router.navigate(['partidosF']);
       } else {
         alert (' * * * * * * * * * *  *El usuario no existe');
       }

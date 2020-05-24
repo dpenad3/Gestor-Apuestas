@@ -1,22 +1,53 @@
+<div>
+    <app-info-tarjeta></app-info-tarjeta>
+</div><br><br><br>
 <div class="container ">
     <br><br>
-    <p-table [value]="partidos" [autoLayout]="true" [paginator]="true" [rows]="7" sortMode="multiple">
+    <p-table [value]="partidos" [autoLayout]="true" [paginator]="true" [rows]="3" sortMode="multiple">
         <ng-template pTemplate="header" let-col>
             <tr>
                 <th *ngFor="let col of cols" [pSortableColumn]="col.field">
                     {{col.header}}
                     <p-sortIcon [field]="col.field"></p-sortIcon>
                 </th>
-                <th>Empate</th>
+                <th>Apuestas</th>
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-partido>
             <tr>
                 <td>{{partido.fecha}}</td>
-                <td>{{partido.local}} <button type="button" class="btn btn-outline-primary">{{partido.porcentaje_local}}</button></td>
-                <td>{{partido.visitante}} <button type="button" class="btn btn-outline-secondary">{{partido.porcentaje_visitante}}</button></td>
-                <td><button type="button" class="btn btn-outline-success">{{partido.porcentaje_empate}}</button></td>
+                <td>{{partido.local}}</td>
+                <td>{{partido.visitante}}</td>
+                <td>
+                    <div class="btn-group" role="group" style="width:100%">
+                        <button (click)="abrirDialogo(partido.id, partido.porcentaje_local, partido.idLocal, partido.local)" type="button" class="btn btn-outline-primary" style="width:33.3%">
+                            {{partido.porcentaje_local}}
+                        </button>
+                        <button (click)="abrirDialogo(partido.id, partido.porcentaje_empate, partido.idEmpate, 'empate')" type="button" class="btn btn-outline-success" style="width:33.3%">
+                            {{partido.porcentaje_empate}}
+                        </button>
+                        <button (click)="abrirDialogo(partido.id, partido.porcentaje_visitante, partido.idVisitante, partido.visitante)" type="button" class="btn btn-outline-secondary" style="width:33.3%">
+                            {{partido.porcentaje_visitante}}
+                        </button>
+                    </div>
+                </td>
             </tr>
         </ng-template>
     </p-table>
 </div>
+<p-dialog header="Realizar Apuesta" [(visible)]="dialogo" styleClass="mydialog" [transitionOptions]="'0ms'">
+
+    <div>
+        <strong>Equipo: {{equipo}}</strong><br>
+        <strong>Porcentaje: {{porcentaje}}</strong>
+
+        <div class="col2 ">
+            <label>Dinero</label>
+            <input class="form-control " type="number" name="dinero " [(ngModel)]="dinero ">
+            <button class="buy" (click)="realizarApuesta(idPartido, dinero, porcentaje, idEquipo)"><i class="material-icons " value="apostar ">Realizar apuesta</i></button>
+        </div>
+
+
+        <button (click)="cerrarDialogo()">Cerrar</button>
+    </div>
+</p-dialog>

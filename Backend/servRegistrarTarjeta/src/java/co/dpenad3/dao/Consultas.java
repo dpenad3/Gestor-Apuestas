@@ -49,6 +49,14 @@ public class Consultas implements operRegistrarTarjeta{
                     insert.setInt(3, obj.getDinero());
                     resInsert = insert.executeUpdate();
                     insert.close();
+                    
+                    int gasto = cupo_disp-obj.getDinero();
+                    PreparedStatement update = objConexion.prepareStatement("UPDATE banco SET cupo_disp=? WHERE numero_tarjeta=?");
+                    update.setInt(1, gasto);
+                    update.setLong(2, obj.getNumero_tarjeta());
+                    update.executeUpdate();
+                    update.close();
+                    
                 }
                 else
                 {
@@ -94,4 +102,55 @@ public class Consultas implements operRegistrarTarjeta{
         return dtos;
     }
    
+    public Datos recargarTarjeta(Datos obj){
+        ConexionBD conn = new ConexionBD();
+        Connection objConexion = conn.obtenerConexionBaseDeDatos();
+        int disponible=0;
+        Long tarjeta = null;
+        int saldo=0;
+        Datos dtos = new Datos();
+        
+        if(objConexion!=null){
+            try{
+               PreparedStatement select = objConexion.prepareStatement("SELECT numero_tarjeta,dinero FROM tarjeta where cedula_jugador=?");
+               select.setInt(1, obj.getCedula_jugador());
+               ResultSet rs = select.executeQuery();
+               if(rs.next()){
+                   tarjeta=rs.getLong("numero_tarjeta");
+                   saldo=rs.getInt("dinero");
+               }
+               
+               PreparedStatement selectB = objConexion.prepareStatement("SELECT cupo_disp FROM banco WHERE numero_tarjeta= ?");
+               selectB.setLong(1, tarjeta);
+               ResultSet rsB = selectB.executeQuery();
+               if(rsB.next()){
+                   disponible = rsB.getInt("cupo_disp");
+               }
+               
+               if(obj.getDinero()<=disponible){
+                    saldo+=obj.getDinero();
+                    PreparedStatement update = objConexion.prepareStatement("UPDATE tarjeta SET dinero=? WHERE numero_tarjeta=?");
+                    update.setInt(1,saldo);
+                    update.setLong(2,tarjeta);
+                    update.executeUpdate();
+                    update.close();
+                  
+                    int gasto = disponible-obj.getDinero();
+                    PreparedStatement updateB = objConexion.prepareStatement("UPDATE banco SET cupo_disp=? WHERE numero_tarjeta=?");
+                    updateB.setInt(1, gasto);
+                    updateB.setLong(2, tarjeta);
+                    updateB.executeUpdate();
+                    updateB.close(); 
+               }else{
+                   dtos=null;
+               }
+               
+            }catch(SQLException e){
+                Logger.getLogger(Consultas.class.getName()).log(Level.SEVERE, "Error al obtener información de la tarjeta", e);
+            }finally{
+                conn.desConexion(objConexion);
+            }
+        }
+        return dtos;
+    }
 }

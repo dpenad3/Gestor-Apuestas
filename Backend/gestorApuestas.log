@@ -1,0 +1,66 @@
+15:33:56.508 INFO  co.dpenad3.bd.ConexionBD 30 obtenerConexionBaseDeDatos - Conectado a la base de datos
+15:33:57.529 INFO  co.dpenad3.bd.ConexionBD 48 desConexion - Desconexión de la base de datos
+15:33:57.531 INFO  co.dpenad3.servicios.Operaciones 54 listaPartidosFutbol - 0 Lista de partidos enviada
+07:38:05.485 INFO  co.dpenad3.bd.ConexionBD 30 obtenerConexionBaseDeDatos - Conectado a la base de datos
+07:38:20.548 INFO  co.dpenad3.bd.ConexionBD 48 desConexion - Desconexión de la base de datos
+07:38:20.549 INFO  co.dpenad3.servicios.Operaciones 54 listaPartidosFutbol - 0 Lista de partidos enviada
+08:48:58.029 INFO  co.dpenad3.bd.ConexionBD 30 obtenerConexionBaseDeDatos - Conectado a la base de datos
+08:49:00.359 INFO  co.dpenad3.bd.ConexionBD 48 desConexion - Desconexión de la base de datos
+08:49:00.411 INFO  co.dpenad3.servicios.Operaciones 54 listaPartidosFutbol - 0 Lista de partidos enviada
+08:49:37.474 INFO  co.dpenad3.bd.ConexionBD 30 obtenerConexionBaseDeDatos - Conectado a la base de datos
+08:49:37.502 INFO  co.dpenad3.bd.ConexionBD 48 desConexion - Desconexión de la base de datos
+08:49:37.502 INFO  co.dpenad3.servicios.Operaciones 54 listaPartidosFutbol - 0 Lista de partidos enviada
+08:50:15.404 INFO  co.dpenad3.bd.ConexionBD 30 obtenerConexionBaseDeDatos - Conectado a la base de datos
+08:50:15.484 INFO  co.dpenad3.bd.ConexionBD 48 desConexion - Desconexión de la base de datos
+08:50:15.520 INFO  co.dpenad3.servicios.Operaciones 54 listaPartidosFutbol - 0 Lista de partidos enviada
+08:53:50.235 INFO  co.dpenad3.bd.ConexionBD 30 obtenerConexionBaseDeDatos - Conectado a la base de datos
+08:53:51.256 INFO  co.dpenad3.bd.ConexionBD 48 desConexion - Desconexión de la base de datos
+08:53:51.256 INFO  co.dpenad3.servicios.Operaciones 54 listaPartidosFutbol - 0 Lista de partidos enviada
+08:54:38.345 INFO  co.dpenad3.bd.ConexionBD 30 obtenerConexionBaseDeDatos - Conectado a la base de datos
+08:54:38.844 INFO  co.dpenad3.bd.ConexionBD 48 desConexion - Desconexión de la base de datos
+08:54:38.844 INFO  co.dpenad3.servicios.Operaciones 54 listaPartidosFutbol - 0 Lista de partidos enviada
+08:56:16.945 INFO  co.dpenad3.bd.ConexionBD 30 obtenerConexionBaseDeDatos - Conectado a la base de datos
+08:56:16.970 INFO  co.dpenad3.bd.ConexionBD 48 desConexion - Desconexión de la base de datos
+08:56:16.970 INFO  co.dpenad3.servicios.Operaciones 54 listaPartidosFutbol - 0 Lista de partidos enviada
+08:57:19.055 INFO  co.dpenad3.bd.ConexionBD 30 obtenerConexionBaseDeDatos - Conectado a la base de datos
+08:57:19.216 INFO  co.dpenad3.bd.ConexionBD 48 desConexion - Desconexión de la base de datos
+08:57:19.216 INFO  co.dpenad3.servicios.Operaciones 54 listaPartidosFutbol - 0 Lista de partidos enviada
+08:57:42.359 INFO  co.dpenad3.bd.ConexionBD 30 obtenerConexionBaseDeDatos - Conectado a la base de datos
+08:57:42.452 INFO  co.dpenad3.bd.ConexionBD 48 desConexion - Desconexión de la base de datos
+08:57:42.452 INFO  co.dpenad3.servicios.Operaciones 54 listaPartidosFutbol - 0 Lista de partidos enviada
+08:58:54.159 INFO  co.dpenad3.bd.ConexionBD 30 obtenerConexionBaseDeDatos - Conectado a la base de datos
+08:58:54.287 INFO  co.dpenad3.bd.ConexionBD 48 desConexion - Desconexión de la base de datos
+08:58:54.291 INFO  co.dpenad3.servicios.Operaciones 54 listaPartidosFutbol - 0 Lista de partidos enviada
+08:59:08.175 INFO  co.dpenad3.bd.ConexionBD 30 obtenerConexionBaseDeDatos - Conectado a la base de datos
+08:59:08.206 INFO  co.dpenad3.bd.ConexionBD 48 desConexion - Desconexión de la base de datos
+08:59:08.210 INFO  co.dpenad3.servicios.Operaciones 54 listaPartidosFutbol - 0 Lista de partidos enviada
+08:59:55.026 INFO  co.dpenad3.bd.ConexionBD 30 obtenerConexionBaseDeDatos - Conectado a la base de datos
+08:59:55.294 INFO  co.dpenad3.bd.ConexionBD 48 desConexion - Desconexión de la base de datos
+08:59:55.294 INFO  co.dpenad3.servicios.Operaciones 54 listaPartidosFutbol - 0 Lista de partidos enviada
+09:04:30.016 INFO  co.dpenad3.bd.ConexionBD 30 obtenerConexionBaseDeDatos - Conectado a la base de datos
+09:04:32.218 INFO  co.dpenad3.bd.ConexionBD 48 desConexion - Desconexión de la base de datos
+09:04:32.218 INFO  co.dpenad3.servicios.Operaciones 54 listaPartidosFutbol - 0 Lista de partidos enviada
+09:10:43.420 INFO  co.dpenad3.bd.ConexionBD 30 obtenerConexionBaseDeDatos - Conectado a la base de datos
+09:10:45.132 INFO  co.dpenad3.bd.ConexionBD 48 desConexion - Desconexión de la base de datos
+09:10:45.132 INFO  co.dpenad3.servicios.Operaciones 54 listaPartidosFutbol - 0 Lista de partidos enviada
+09:12:13.748 INFO  co.dpenad3.bd.ConexionBD 30 obtenerConexionBaseDeDatos - Conectado a la base de datos
+09:12:17.418 INFO  co.dpenad3.bd.ConexionBD 48 desConexion - Desconexión de la base de datos
+09:12:17.418 INFO  co.dpenad3.servicios.Operaciones 70 apuesta - 0 Apuesta realizada
+09:16:23.018 INFO  co.dpenad3.bd.ConexionBD 30 obtenerConexionBaseDeDatos - Conectado a la base de datos
+09:16:24.300 INFO  co.dpenad3.bd.ConexionBD 48 desConexion - Desconexión de la base de datos
+09:16:24.300 INFO  co.dpenad3.servicios.Operaciones 54 listaPartidosFutbol - 0 Lista de partidos enviada
+09:16:35.974 INFO  co.dpenad3.bd.ConexionBD 30 obtenerConexionBaseDeDatos - Conectado a la base de datos
+09:17:11.561 INFO  co.dpenad3.bd.ConexionBD 48 desConexion - Desconexión de la base de datos
+09:17:11.561 INFO  co.dpenad3.servicios.Operaciones 75 apuesta - -1 Error al realizar la apuesta
+09:17:59.874 INFO  co.dpenad3.bd.ConexionBD 30 obtenerConexionBaseDeDatos - Conectado a la base de datos
+09:17:59.999 INFO  co.dpenad3.bd.ConexionBD 48 desConexion - Desconexión de la base de datos
+09:17:59.999 INFO  co.dpenad3.servicios.Operaciones 70 apuesta - 0 Apuesta realizada
+09:18:11.566 INFO  co.dpenad3.bd.ConexionBD 30 obtenerConexionBaseDeDatos - Conectado a la base de datos
+09:18:12.170 INFO  co.dpenad3.bd.ConexionBD 48 desConexion - Desconexión de la base de datos
+09:18:12.170 INFO  co.dpenad3.servicios.Operaciones 54 listaPartidosFutbol - 0 Lista de partidos enviada
+10:41:04.646 INFO  co.dpenad3.bd.ConexionBD 30 obtenerConexionBaseDeDatos - Conectado a la base de datos
+10:41:16.857 INFO  co.dpenad3.bd.ConexionBD 48 desConexion - Desconexión de la base de datos
+10:41:16.925 INFO  co.dpenad3.servicios.Operaciones 54 listaPartidosFutbol - 0 Lista de partidos enviada
+10:59:19.379 INFO  co.dpenad3.bd.ConexionBD 30 obtenerConexionBaseDeDatos - Conectado a la base de datos
+10:59:26.149 INFO  co.dpenad3.bd.ConexionBD 48 desConexion - Desconexión de la base de datos
+10:59:26.227 INFO  co.dpenad3.servicios.Operaciones 54 listaPartidosFutbol - 0 Lista de partidos enviada

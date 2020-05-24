@@ -16,6 +16,8 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  *
@@ -24,11 +26,13 @@ import javax.ws.rs.core.MediaType;
 @Path("operacion")
 public class Operaciones {
     
+    private static final Logger LOG = LogManager.getLogger(Operaciones.class);
     
     @Path("version")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public String version(){
+        LOG.info("Ingreso");
         return "version 1.0";
     }
     
@@ -42,10 +46,12 @@ public class Operaciones {
         if(r==null){
             r.setCodigo(Mensajes.COD_ERROR_NODATA);
             r.setMensajeE(Mensajes.MNS_ERROR_NODATA);
+            LOG.info(Mensajes.COD_ERROR_NODATA+" "+Mensajes.MNS_ERROR_NODATA);
         }
         else{
           r.setCodigo(Mensajes.COD_EXITO);
           r.setMensajeE(Mensajes.MNS_EXITO_LISTA);
+          LOG.info(Mensajes.COD_EXITO+" "+Mensajes.MNS_EXITO_LISTA);
         }
         return r;
     }
@@ -61,10 +67,12 @@ public class Operaciones {
        if(x!=0){
            r.setCodigo(Mensajes.COD_EXITO);
            r.setMensajeE(Mensajes.MNS_EXITO_APUESTA);
+           LOG.info(Mensajes.COD_EXITO+" "+Mensajes.MNS_EXITO_APUESTA);
        }
        else{
            r.setCodigo(Mensajes.COD_ERROR);
            r.setMensajeE(Mensajes.MNS_ERROR_APUESTA);
+           LOG.info(Mensajes.COD_ERROR+" "+Mensajes.MNS_ERROR_APUESTA);
        }
        return r;
     }

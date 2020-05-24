@@ -70,10 +70,30 @@ public class Operaciones {
         if (d == null){
             r.setCodigo(Mensajes.COD_ERROR);
             r.setMensajeE(Mensajes.MNS_ERROR_OBTENER);
-        }
-        
+        } 
         r.setInfo(d);
         return r;
-     
     }
+    
+    @Path("recargar")
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Respuesta recargarTarjeta(Datos obj){
+        Respuesta r = new Respuesta();
+        Consultas cons = new Consultas();
+        Datos d = cons.recargarTarjeta(obj);
+         
+        if(d==null){
+            r.setCodigo(Mensajes.COD_ERROR);
+            r.setMensajeE(Mensajes.MNS_ERROR_CARGAR);
+        }
+        else{
+            r.setCodigo(Mensajes.COD_EXITO);
+            r.setMensajeE(Mensajes.MNS_EXITO_CARGAR);
+        }
+        
+        return r;
+    }
+    
 }

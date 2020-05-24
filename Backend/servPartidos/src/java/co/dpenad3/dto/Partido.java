@@ -17,6 +17,9 @@ public class Partido {
     Date fecha;
     String local;
     String visitante;
+    int idLocal;
+    int idVisitante;
+    int idEmpate;
     int puntos_local;
     int puntos_visitante;
     float porcentaje_local;
@@ -94,6 +97,32 @@ public class Partido {
     public void setPorcentaje_empate(float porcentaje_empate) {
         this.porcentaje_empate = porcentaje_empate;
     }
+
+    public int getIdLocal() {
+        return idLocal;
+    }
+
+    public void setIdLocal(int idLocal) {
+        this.idLocal = idLocal;
+    }
+
+    public int getIdVisitante() {
+        return idVisitante;
+    }
+
+    public void setIdVisitante(int idVisitante) {
+        this.idVisitante = idVisitante;
+    }
+
+    public int getIdEmpate() {
+        return idEmpate;
+    }
+
+    public void setIdEmpate(int idEmpate) {
+        this.idEmpate = idEmpate;
+    }
+    
+    
     
 }
 
@@ -104,8 +133,8 @@ public class Partido {
 //    deporte character varying COLLATE pg_catalog."default" NOT NULL,
 //    id_local integer NOT NULL,
 //    id_visitante integer NOT NULL,
-//    puntos_local integer,
-//    puntos_visitante integer,
+//    puntos_local integer NOT NULL,
+//    puntos_visitante integer NOT NULL,
 //    porcentaje_local numeric NOT NULL,
 //    porcentaje_visitante numeric NOT NULL,
 //    porcentaje_empate numeric NOT NULL,

@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'partidosF', component: PartidosComponent},
   { path: 'infoTarjeta', component: InfoTarjetaComponent},
   { path: 'apuesta', component: ApuestaComponent},
-  { path: '**', redirectTo: 'tarjeta'},
+  { path: '**', redirectTo: 'inicio'},
 ];
 
 @NgModule({

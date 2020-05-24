@@ -15,4 +15,5 @@ public interface operRegistrarTarjeta {
     
     public Datos registrarTarjeta(Datos obj);
     public Datos darTarjeta(Datos cedula);
+    public Datos recargarTarjeta(Datos obj);
 }

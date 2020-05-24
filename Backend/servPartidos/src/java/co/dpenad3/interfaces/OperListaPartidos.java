@@ -15,5 +15,4 @@ import java.util.ArrayList;
 public interface OperListaPartidos {
     
     public ArrayList<Partido> listaPartidosFutbol();
-    public ArrayList<Partido> porPartidoFutbol(int id);
 }

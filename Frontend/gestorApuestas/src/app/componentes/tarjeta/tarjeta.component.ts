@@ -18,6 +18,8 @@ export class TarjetaComponent implements OnInit {
 
   miTarjeta: Tarjeta;
   miRespuesta: RespuestaP;
+  correcto: boolean;
+  mensaje: string;
 
   constructor(private servicio: OperacionesService, private router: Router) { }
 
@@ -27,7 +29,8 @@ export class TarjetaComponent implements OnInit {
   registrar() {
 
     if (this.numero === undefined || this.cv === undefined || this.fecha === undefined || this.dinero === undefined) {
-      alert('Por favor completar el formulario');
+      this.correcto = false;
+      this.mensaje = 'Por favor rellene todos los campos';
       return ;
     }
     const x: Promise<RespuestaP> =  this.servicio.registrarTarjeta(this.numero, this.cv, this.fecha, this.dinero);
@@ -39,7 +42,8 @@ export class TarjetaComponent implements OnInit {
         this.servicio.miTarjeta = this.miTarjeta;
         this.router.navigate(['infoTarjeta']);
       } else {
-        alert (this.miRespuesta.mensajeE);
+        this.correcto = false;
+        this.mensaje = 'Datos ingresados incorrectos';
       }
     });
 

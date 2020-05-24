@@ -13,8 +13,9 @@ export class InfoTarjetaComponent implements OnInit {
 
   miRespuesta: RespuestaP;
   miTarjeta: Tarjeta;
+  dinero: number;
 
-  constructor(private servicio: OperacionesService, private router: Router) { 
+  constructor(private servicio: OperacionesService, private router: Router) {
     this.infoTarjeta();
   }
 
@@ -30,6 +31,23 @@ export class InfoTarjetaComponent implements OnInit {
         console.log(this.miRespuesta.mensajeE);
       } else {
         alert (this.miRespuesta.mensajeE);
+      }
+    });
+  }
+
+  recargar() {
+    if (this.dinero === undefined) {
+      alert('Especificar monto de recarga');
+      return ;
+    }
+    const x: Promise<RespuestaP> = this.servicio.serRecargarTarjeta(this.dinero);
+    x.then((value: RespuestaP) => {
+      this.miRespuesta = value;
+      if  (this.miRespuesta.codigo === 0) {
+          // recargar página
+          alert(this.miRespuesta.mensajeE);
+      } else {
+        alert(this.miRespuesta.mensajeE);
       }
     });
   }

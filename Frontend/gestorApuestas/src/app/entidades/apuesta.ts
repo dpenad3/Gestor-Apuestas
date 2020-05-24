@@ -1,6 +1,7 @@
 export class Apuesta {
-    'cedula_jugador': string;
-    'id_partido': number;
-    'dinero': number;
-    'porcentaje': number;
+    'cedula_jugador'?: number;
+    'id_partido'?: number;
+    'dinero'?: number;
+    'porcentaje'?: number;
+    'id_equipo'?: number;
 }

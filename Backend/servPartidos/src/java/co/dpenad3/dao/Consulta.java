@@ -34,27 +34,30 @@ public class Consulta implements OperListaPartidos{
                 select.setString(1,"futbol");
                 ResultSet rs = select.executeQuery();
                 while(rs.next()){
-                    Partido p = new Partido();
-                    p.setId(rs.getInt("id"));
-                    p.setFecha(rs.getDate("fecha"));
-                    p.setPuntos_local(rs.getInt("puntos_local"));
-                    p.setPuntos_visitante(rs.getInt("puntos_visitante"));
-                    p.setPorcentaje_local(rs.getFloat("porcentaje_local"));
-                    p.setPorcentaje_visitante(rs.getFloat("porcentaje_visitante"));
-                    p.setPorcentaje_empate(rs.getFloat("porcentaje_empate"));
-                    PreparedStatement local = objConexion.prepareStatement("SELECT nombre FROM equipo where id=?");
-                    local.setInt(1, rs.getInt("id_local"));
-                    ResultSet lc = local.executeQuery();
-                    if(lc.next()){
-                        p.setLocal(lc.getString("nombre"));
-                    }   
-                    PreparedStatement visitante = objConexion.prepareStatement("SELECT nombre FROM equipo where id=?");
-                    visitante.setInt(1, rs.getInt("id_visitante"));
-                    ResultSet vs = visitante.executeQuery();
-                    if(vs.next()){
-                       p.setVisitante(vs.getString("nombre")); 
-                    }
-                    partidos.add(p);
+                    if(rs.getInt("puntos_local")==-1){
+                        Partido p = new Partido();
+                        p.setId(rs.getInt("id"));
+                        p.setFecha(rs.getDate("fecha"));
+                        p.setPorcentaje_local(rs.getFloat("porcentaje_local"));
+                        p.setPorcentaje_visitante(rs.getFloat("porcentaje_visitante"));
+                        p.setPorcentaje_empate(rs.getFloat("porcentaje_empate"));
+                        PreparedStatement local = objConexion.prepareStatement("SELECT nombre FROM equipo where id=?");
+                        local.setInt(1, rs.getInt("id_local"));
+                        p.setIdLocal(rs.getInt("id_local"));
+                        p.setIdEmpate(0);
+                        p.setIdVisitante(rs.getInt("id_visitante"));
+                        ResultSet lc = local.executeQuery();
+                        if(lc.next()){
+                            p.setLocal(lc.getString("nombre"));
+                        }   
+                        PreparedStatement visitante = objConexion.prepareStatement("SELECT nombre FROM equipo where id=?");
+                        visitante.setInt(1, rs.getInt("id_visitante"));
+                        ResultSet vs = visitante.executeQuery();
+                        if(vs.next()){
+                           p.setVisitante(vs.getString("nombre")); 
+                        }
+                        partidos.add(p);
+                    }        
                 }
             }catch(SQLException e){
                 Logger.getLogger(Consulta.class.getName()).log(Level.SEVERE, "Error al obtener lista de partidos", e);
@@ -63,11 +66,5 @@ public class Consulta implements OperListaPartidos{
             }
         }
         return partidos;
-    }
-
-    
-    public ArrayList<Partido> porPartidoFutbol(int id) {
-        return null;
-    }
-    
+    }    
 }

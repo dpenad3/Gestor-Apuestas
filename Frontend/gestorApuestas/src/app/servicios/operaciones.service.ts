@@ -14,6 +14,7 @@ export class OperacionesService {
   rutaservicioversion = 'http://localhost:8080/servRegistrarTarjeta/app/operacion/registrarTarjeta';
   rutaservicioTarjeta = 'http://localhost:8080/servRegistrarTarjeta/app/operacion/registrarTarjeta';
   rutaservDarTarjeta = 'http://localhost:8080/servRegistrarTarjeta/app/operacion/darTarjeta';
+  rutaRecargarTarjeta = 'http://localhost:8080/servRegistrarTarjeta/app/operacion/recargar';
   persona: Persona;
   miTarjeta: Tarjeta;
 
@@ -33,6 +34,8 @@ export class OperacionesService {
       cedula,
       contrasena,
     };
+   sessionStorage.Cedula = cedula;
+   sessionStorage.contrasena = contrasena;
    return this.http.post<Respuesta>(`${this.rutaservicio}`, info).toPromise();
  }
 
@@ -40,7 +43,7 @@ export class OperacionesService {
    const info = {
     numero_tarjeta,
     cv,
-    cedula_jugador: 1007228578,
+    cedula_jugador: sessionStorage.getItem('Cedula'),
     fecha_ven,
     dinero
    };
@@ -49,8 +52,17 @@ export class OperacionesService {
 
  serDarTarjeta(): Promise<RespuestaP> {
     const info = {
-      cedula_jugador: 1007228578
+      cedula_jugador: sessionStorage.getItem('Cedula')
     };
     return this.http.post<RespuestaP>(`${this.rutaservDarTarjeta}`, info).toPromise();
  }
+
+ serRecargarTarjeta(dinero: number): Promise<RespuestaP> {
+    const info = {
+      cedula_jugador: sessionStorage.getItem('Cedula'),
+      dinero
+    };
+    return this.http.post<RespuestaP>(`${this.rutaRecargarTarjeta}`, info).toPromise();
+ }
+ 
 }
