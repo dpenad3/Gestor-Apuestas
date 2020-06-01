@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,7 +11,14 @@ import { TarjetaComponent } from './componentes/tarjeta/tarjeta.component';
 import { OperacionesService } from './servicios/operaciones.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { Routes, RouterModule } from '@angular/router';
+import { ModificarComponent } from './componentes/modificar/modificar.component';
 
+const appRoutes: Routes = [
+  {path: '', component: RegistroComponent},
+  {path: 'registrar', component: RegistroComponent},
+  {path: 'modificar', component: ModificarComponent}
+];
 
 @NgModule({
   declarations: [
@@ -21,10 +28,12 @@ import { FormsModule } from '@angular/forms';
     SesionComponent,
     RegistroComponent,
     TarjetaComponent,
+    ModificarComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    RouterModule.forRoot(appRoutes),
     HttpClientModule,
     FormsModule,
   ],

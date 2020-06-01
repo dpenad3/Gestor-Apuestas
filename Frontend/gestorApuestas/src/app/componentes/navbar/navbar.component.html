@@ -1,24 +1,34 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" [routerLink]="['inicio']">Apuesta en Grande</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active" routerLinkActive="active">
                 <a class="navbar-brand" [routerLink]="['inicio']">
-                    <img src="assets/imagenes/icono-casa.jpg" width="40" height="30" class="d-inline-block align-top" alt=""> Inicio
+                    <img src="assets/imagenes/icono-casa.jpg" width="40" height="30" class="d-inline-block align-top"
+                        alt=""> Inicio
                 </a>
             </li>
             <li class="nav-item" routerLinkActive="active">
                 <a class="navbar-brand" [routerLink]="['inicioSesion']">
-                    <img src="assets/imagenes/icono-persona.png" width="40" height="30" class="d-inline-block align-top" alt=""> Iniciar sesión
+                    <img src="assets/imagenes/icono-persona.png" width="40" height="30" class="d-inline-block align-top"
+                        alt=""> Iniciar sesión
                 </a>
             </li>
             <li class="nav-item" routerLinkActive="active">
                 <a class="navbar-brand" [routerLink]="['registro']">
-                    <img src="assets/imagenes/icono-registro.png" width="40" height="30" class="d-inline-block align-top" alt=""> Registrarse
+                    <img src="assets/imagenes/icono-registro.png" width="40" height="30"
+                        class="d-inline-block align-top" alt=""> Registrarse
+                </a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+                <a class="navbar-brand" [routerLink]="['modificar']">
+                    <img src="assets/imagenes/icono-registro.png" width="40" height="30"
+                        class="d-inline-block align-top" alt=""> modificar datos
                 </a>
             </li>
         </ul>

@@ -1,5 +1,5 @@
 <div align='center' >
-    <h2>REGISTRO DE DATOS PERSONALES</h2>
+    <h2>MODIFICACION DE DATOS PERSONALES</h2>
    </div>
     
 
@@ -33,6 +33,18 @@
                     [(ngModel)]="correo"size="50" maxlength="50">
         </div>
 
+        <div>
+            <hr>
+            <!--<input class="form-control" type="email" placeholder="Digite acá su correo (correo@gmail.com)" name="Correo" [(ngModel)]="Correo">-->
+            <!--<h2><label>Contraseña</label></h2>-->
+            <hr>
+            <!--<p class="font-weight-italic">
+                <input type="password" contrasena="contrasena" class="fadeIn second" name="contrasena"
+                    placeholder="Digite su contrasena" [(ngModel)]="contrasena"size="50" maxlength="50">
+            </p>-->
+
+            
+        </div>
         <div class="form-group text-center">
             <h4><label>Contraseña</label></h4>
             <input class="form-control" type="password" name="contrasena" placeholder="Digite su contrasena" [(ngModel)]="contrasena">
@@ -40,13 +52,9 @@
         <div>
             
             <hr>
-            <button (click)="ingresarregistro()" type="button" class="btn login_btn" type="button"
-            name="action">Registrarse</button>
+            <button (click)="modificarregistro()" type="button" class="btn login_btn" type="button"
+            name="action">modificar</button>
         </div>
     </form>
 
 </div>
-
-
-
-

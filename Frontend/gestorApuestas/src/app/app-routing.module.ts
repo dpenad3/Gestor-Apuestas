@@ -4,6 +4,7 @@ import { InicioComponent } from './componentes/inicio/inicio.component';
 import { SesionComponent } from './componentes/sesion/sesion.component';
 import { RegistroComponent } from './componentes/registro/registro.component';
 import { TarjetaComponent } from './componentes/tarjeta/tarjeta.component';
+import {ModificarComponent} from './componentes/modificar/modificar.component';
 
 
 const routes: Routes = [
@@ -11,6 +12,7 @@ const routes: Routes = [
   { path: 'inicioSesion', component: SesionComponent},
   { path: 'registro', component: RegistroComponent},
   { path: 'tarjeta', component: TarjetaComponent},
+  { path: 'modificar', component: ModificarComponent},
   { path: '**', redirectTo: 'tarjeta'},
 ];
 
