@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { OperacionesService } from '../../servicios/operaciones.service';
 import { Tarjeta } from '../../entidades/tarjeta';
-import { ResTarjeta } from '../../entidades/resTarjeta';
 import { Router } from '@angular/router';
+import { RespuestaP } from '../../entidades/respuestaP';
 
 @Component({
   selector: 'app-tarjeta',
@@ -17,7 +17,9 @@ export class TarjetaComponent implements OnInit {
   dinero: number;
 
   miTarjeta: Tarjeta;
-  miRespuesta: ResTarjeta;
+  miRespuesta: RespuestaP;
+  correcto: boolean;
+  mensaje: string;
 
   constructor(private servicio: OperacionesService, private router: Router) { }
 
@@ -27,23 +29,22 @@ export class TarjetaComponent implements OnInit {
   registrar() {
 
     if (this.numero === undefined || this.cv === undefined || this.fecha === undefined || this.dinero === undefined) {
-      alert('Por favor completar el formulario');
+      this.correcto = false;
+      this.mensaje = 'Por favor rellene todos los campos';
       return ;
     }
-    this.fecha = this.fecha + '-31';
-    const x: Promise<ResTarjeta> =  this.servicio.registrarTarjeta(this.numero, this.cv, this.fecha, this.dinero);
+    const x: Promise<RespuestaP> =  this.servicio.registrarTarjeta(this.numero, this.cv, this.fecha, this.dinero);
 
-    x.then((value: ResTarjeta) => {
+    x.then((value: RespuestaP) => {
       this.miRespuesta = value;
-      if  (this.miRespuesta.codigo === 1) {
+      if  (this.miRespuesta.codigo === 0) {
         this.miTarjeta =  this.miRespuesta.info;
         this.servicio.miTarjeta = this.miTarjeta;
-        alert (this.miRespuesta.mensajeE);
-        this.router.navigate(['inicio']);
+        this.router.navigate(['infoTarjeta']);
       } else {
-        alert (this.miRespuesta.mensajeE);
+        this.correcto = false;
+        this.mensaje = 'Datos ingresados incorrectos';
       }
-
     });
 
   }

@@ -26,11 +26,19 @@ export class SesionComponent implements OnInit {
   }
   llamar() {
 
+<<<<<<< HEAD
     if (this.cedula === undefined || this.contrasena === undefined) {
+=======
+    if (this.cedula === undefined || this.contrasenia === undefined) {
+>>>>>>> a75b387b1dd7bd715e08cc0adce4df319c38b2a3
       alert('Los datos estan vacios');
       return;
     }
+<<<<<<< HEAD
     const x: Promise<Respuesta> = this.servicio.autenticar(this.cedula, this.contrasena);
+=======
+    const x: Promise<Respuesta> =  this.servicio.login(this.cedula, this.contrasenia);
+>>>>>>> a75b387b1dd7bd715e08cc0adce4df319c38b2a3
 
     x.then((value: Respuesta) => {
       this.mirespuesta = value;
@@ -38,7 +46,7 @@ export class SesionComponent implements OnInit {
         this.mipersona = this.mirespuesta.info;
         this.servicio.persona = this.mipersona;
 
-        this.router.navigate(['tarjeta']);
+        this.router.navigate(['partidosF']);
       } else {
         alert(' * * * * * * * * * *  *El usuario no existe');
       }

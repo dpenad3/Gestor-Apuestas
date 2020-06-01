@@ -2,4 +2,10 @@
 /Backend/ServAuten/nbproject/private/
 /Backend/servRegistrarTarjeta/dist/
 /Backend/ServAuten/build/
+<<<<<<< HEAD
 /Backend/ServAuten/dist/
+=======
+/Backend/servPartidos/nbproject/private/
+/Backend/servPartidos/build/
+/Backend/ProyectoAnalisis/nbproject/private/
+>>>>>>> a75b387b1dd7bd715e08cc0adce4df319c38b2a3

@@ -1,3 +1,6 @@
+@import '~primeicons/primeicons.css';
+@import '~primeng/resources/themes/nova-light/theme.css';
+@import '~primeng/resources/primeng.min.css';
 .animated {
     -webkit-animation-duration: 1s;
     animation-duration: 1s;

@@ -59,3 +59,19 @@ public class Datos {
     }
     
 }
+
+//CREATE TABLE public.tarjeta
+//(
+//    cedula_jugador integer NOT NULL,
+//    numero_tarjeta bigint NOT NULL,
+//    dinero integer NOT NULL,
+//    CONSTRAINT pk_cedulaj_numerot PRIMARY KEY (cedula_jugador, numero_tarjeta),
+//    CONSTRAINT fk_cedula_jugador FOREIGN KEY (cedula_jugador)
+//        REFERENCES public.jugador (cedula) MATCH SIMPLE
+//        ON UPDATE NO ACTION
+//        ON DELETE NO ACTION,
+//    CONSTRAINT fk_numero_tarjeta FOREIGN KEY (numero_tarjeta)
+//        REFERENCES public.banco (numero_tarjeta) MATCH SIMPLE
+//        ON UPDATE NO ACTION
+//        ON DELETE NO ACTION
+//)

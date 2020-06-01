@@ -1,0 +1,18 @@
+<div style="height: 50px;">
+    <div style="padding: 10px; float: left; width: 45%; text-align: justify;">
+        <i class="pi pi-id-card" style="font-size: 2em"></i>
+        <strong>Número de tarjeta: </strong>{{miTarjeta.numero_tarjeta}}<br>
+        <i class="pi pi-money-bill" style="font-size: 2em"></i>
+        <strong>Cantidad de dinero disponible: </strong>{{miTarjeta.dinero}}
+    </div>
+    <div style="padding: 10px; float: right; width: 45%; text-align: justify;">
+        <i class="pi pi-comment" style="font-size: 2em"></i>
+        <strong>Convenciones</strong><br> Local: azul<br> Empate: verde<br> Visitante: gris
+    </div>
+    <div style="padding: 10px; float: right; width: 45%; text-align: justify;">
+        <form (submit)=recargar()>
+            <input class="form-control " type="number " placeholder="100000" name="dinero " [(ngModel)]="dinero ">
+            <button class="buy "><i class="material-icons " value="Recargar">Recargar</i></button>
+        </form>
+    </div>
+</div><br><br>

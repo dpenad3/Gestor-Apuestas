@@ -2,15 +2,12 @@ import { TestBed } from '@angular/core/testing';
 
 import { OperacionesService } from './operaciones.service';
 
-describe('OperacionesService', () => {
-  let service: OperacionesService;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(OperacionesService);
-  });
+describe('OperacionesService', () => {
+  beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
+    const service: OperacionesService = TestBed.get(OperacionesService);
     expect(service).toBeTruthy();
   });
 });
