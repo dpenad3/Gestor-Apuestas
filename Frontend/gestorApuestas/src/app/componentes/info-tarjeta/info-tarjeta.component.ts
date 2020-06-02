@@ -44,8 +44,8 @@ export class InfoTarjetaComponent implements OnInit {
     x.then((value: RespuestaP) => {
       this.miRespuesta = value;
       if  (this.miRespuesta.codigo === 0) {
-          // recargar página
           alert(this.miRespuesta.mensajeE);
+          this.infoTarjeta();
       } else {
         alert(this.miRespuesta.mensajeE);
       }

@@ -20,23 +20,12 @@ export class PartidosService {
 
   servRealizarApuesta( idPartido: number, dinero: number, porcentaje: number, idEquipo: number): Promise<RespuestaP> {
     const info = {
-      cedula_jugador: 1007228578,
+      cedula_jugador: sessionStorage.getItem('Cedula'),
       id_partido: idPartido,
       dinero,
       porcentaje,
       id_equipo: idEquipo,
     };
     return this.http.post<RespuestaP>(`${this.rutaRealizarApuesta}`, info).toPromise();
-  }
-
-  realizarApuesta(idPartido: number, Porcentaje: number, idEquipo: number) {
-    // this.apuesta.cedula_jugador = 1007228578;
-    this.apuesta.id_partido = idPartido;
-    this.apuesta.id_equipo = idEquipo;
-    this.apuesta.porcentaje = Porcentaje;
-  }
-
-  darApuesta(): Apuesta {
-    return this.apuesta;
   }
 }

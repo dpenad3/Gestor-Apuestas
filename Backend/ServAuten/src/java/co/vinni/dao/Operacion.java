@@ -24,17 +24,21 @@ public class Operacion {
             return false;
         }else{
             try {
+                String contrasenia=null;
                 PreparedStatement ps = conex.prepareStatement("SELECT cedula, contraseña FROM jugador where cedula=?");
                 ps.setInt(1, cedula);                
                 ResultSet rs = ps.executeQuery();
-                String contrasenia= rs.getString("contraseña");
-                if (contrasenia==contrasena){
+                if(rs.next()){
+                     contrasenia= rs.getString("contraseña");
+                } 
+                if (contrasenia.equals(contrasena)){
                     return true;
                 }else{
                    return false;
                 }
             } catch (Exception e) {
                 System.out.println(e);
+                return false;
             }
             finally{
                 if (conex != null){
@@ -42,7 +46,6 @@ public class Operacion {
                 }
             }    
         }
-        return false;
     }     
     
 }

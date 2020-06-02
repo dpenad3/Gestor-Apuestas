@@ -16,6 +16,15 @@ public class Respuesta {
     private String apellido;
     private String contrasena;
     private String mensajeE;
+    private int codigo;
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
 
     public int getCedula() {
         return cedula;

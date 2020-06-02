@@ -37,7 +37,8 @@ export class SesionComponent implements OnInit {
       if  (this.mirespuesta.codigo === 1) {
         this.mipersona =  this.mirespuesta.info;
         this.servicio.persona = this.mipersona;
-
+        sessionStorage.Cedula = this.cedula;
+        sessionStorage.contrasena = this.contrasenia;
         this.router.navigate(['partidosF']);
       } else {
         alert (' * * * * * * * * * *  *El usuario no existe');

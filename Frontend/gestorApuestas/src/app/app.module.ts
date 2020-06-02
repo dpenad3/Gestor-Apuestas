@@ -14,7 +14,6 @@ import { FormsModule } from '@angular/forms';
 import { PartidosComponent } from './componentes/partidos/partidos.component';
 import { TableModule } from 'primeng/table';
 import { PartidosService } from './servicios/partidos.service';
-import { ApuestaComponent } from './componentes/apuesta/apuesta.component';
 import { InfoTarjetaComponent } from './componentes/info-tarjeta/info-tarjeta.component';
 import { CardModule } from 'primeng/card';
 import {DialogModule} from 'primeng/dialog';
@@ -28,7 +27,6 @@ import {DialogModule} from 'primeng/dialog';
     RegistroComponent,
     TarjetaComponent,
     PartidosComponent,
-    ApuestaComponent,
     InfoTarjetaComponent,
   ],
   imports: [

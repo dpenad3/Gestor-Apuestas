@@ -65,6 +65,7 @@ public class Operaciones {
                 r.setMensajeE("Valores no validos");
             } else {
                 if (obj.login(datos.getCedula(), datos.getContrasena())) {
+                    r.setCodigo(1);
                     r.setCedula(datos.getCedula());
                     r.setContrasena(datos.getContrasena());
                     r.setMensajeE("Valores validos");

@@ -3,7 +3,6 @@ import { PartidosService } from '../../servicios/partidos.service';
 import { Router } from '@angular/router';
 import { Partido } from '../../entidades/partidos';
 import { RespuestaP } from '../../entidades/respuestaP';
-import { ApuestaComponent } from '../apuesta/apuesta.component';
 
 @Component({
   selector: 'app-partidos',

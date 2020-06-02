@@ -10,8 +10,7 @@ import { RespuestaP } from '../entidades/respuestaP';
 })
 export class OperacionesService {
 
-  rutaservicio = 'http://localhost:8080/servRegistrarTarjeta/app/operacion/registrarTarjeta';
-  rutaservicioversion = 'http://localhost:8080/servRegistrarTarjeta/app/operacion/registrarTarjeta';
+  rutaservicio = 'http://localhost:8080/ServAuten/app/operacion/login';
   rutaservicioTarjeta = 'http://localhost:8080/servRegistrarTarjeta/app/operacion/registrarTarjeta';
   rutaservDarTarjeta = 'http://localhost:8080/servRegistrarTarjeta/app/operacion/darTarjeta';
   rutaRecargarTarjeta = 'http://localhost:8080/servRegistrarTarjeta/app/operacion/recargar';
@@ -34,8 +33,6 @@ export class OperacionesService {
       cedula,
       contrasena,
     };
-   sessionStorage.Cedula = cedula;
-   sessionStorage.contrasena = contrasena;
    return this.http.post<Respuesta>(`${this.rutaservicio}`, info).toPromise();
  }
 
@@ -47,7 +44,7 @@ export class OperacionesService {
     fecha_ven,
     dinero
    };
-   return this.http.post<RespuestaP>(`${this.rutaservicio}`, info).toPromise();
+   return this.http.post<RespuestaP>(`${this.rutaservicioTarjeta}`, info).toPromise();
  }
 
  serDarTarjeta(): Promise<RespuestaP> {
