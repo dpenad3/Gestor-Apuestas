@@ -1,0 +1,21 @@
+
+
+.padre {
+    background-color: #fafafa;
+    margin: 1rem;
+    padding: 1rem;
+    border: 2px solid #ccc;
+    /* IMPORTANTE */
+    text-align: center;
+    font-style: italic;
+  }
+  p {
+    font-family: monospace;
+    height: 0px;
+    
+  }
+  .login_btn {
+    width: 100%;
+    background: #c0392b !important;
+    color: white !important;
+}

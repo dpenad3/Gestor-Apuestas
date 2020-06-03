@@ -1,0 +1,60 @@
+<div align='center' >
+    <h2>MODIFICACION DE DATOS PERSONALES</h2>
+   </div>
+    
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<div class="padre">
+    <form>
+        <div class="form-group text-center">
+            <H4> <label>Cédula</label></H4>
+                <input type="text" cedula="cedula" class="form-control"  name="cedula" placeholder="Digite cedula para modificar"
+                    [(ngModel)]="cedula" size="50" maxlength="50">
+        </div>
+
+        <div class="form-group text-center">
+            <h4><label>Nombre</label></h4>
+            <input type="text" nombre="nombre" class="form-control"  name="nombre"
+                    placeholder="Digite su nombre" [(ngModel)]="nombre" size="50" maxlength="50">
+        </div>
+
+        <div class="form-group text-center">
+            <h4><label>Apellido</label></h4>
+                <input type="text" apellido="apellido" class="form-control"  name="apellido"
+                    placeholder="Digite su el apellido" [(ngModel)]="apellido"size="50" maxlength="50">
+        </div>
+
+        <div class="form-group text-center">
+            <h4><label>Correo electrónico</label></h4>
+                <input type="text" correo="correo" class="form-control"  name="correo" placeholder="Digite su el correo"
+                    [(ngModel)]="correo"size="50" maxlength="50">
+        </div>
+
+        <div>
+            <hr>
+            <!--<input class="form-control" type="email" placeholder="Digite acá su correo (correo@gmail.com)" name="Correo" [(ngModel)]="Correo">-->
+            <!--<h2><label>Contraseña</label></h2>-->
+            <hr>
+            <!--<p class="font-weight-italic">
+                <input type="password" contrasena="contrasena" class="fadeIn second" name="contrasena"
+                    placeholder="Digite su contrasena" [(ngModel)]="contrasena"size="50" maxlength="50">
+            </p>-->
+
+            
+        </div>
+        <div class="form-group text-center">
+            <h4><label>Contraseña</label></h4>
+            <input class="form-control" type="password" name="contrasena" placeholder="Digite su contrasena" [(ngModel)]="contrasena">
+        </div>
+        <div>
+            
+            <hr>
+            <button (click)="modificarregistro()" type="button" class="btn login_btn" type="button"
+            name="action">modificar</button>
+        </div>
+    </form>
+
+</div>

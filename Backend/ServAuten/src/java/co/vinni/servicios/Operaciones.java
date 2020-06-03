@@ -11,6 +11,8 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  *
@@ -18,6 +20,7 @@ import javax.ws.rs.core.MediaType;
  */
 @Path("operacion")
 public class Operaciones {
+    private static final Logger LOG = LogManager.getLogger(Operaciones.class);
     
     /*@Path("version")
     @GET
@@ -60,16 +63,19 @@ public class Operaciones {
             //  Datos d = cons.consulta(datos);
 
             if (datos.getCedula() == 0 || datos.getContrasena() == null) {
+                LOG.debug("Conexion");
                 r.setCedula(0);
                 r.setContrasena("GUSTAVO1");
                 r.setMensajeE("Valores no validos");
             } else {
                 if (obj.login(datos.getCedula(), datos.getContrasena())) {
                     r.setCodigo(1);
+                    LOG.debug("Los valores si son validos para la conexion");
                     r.setCedula(datos.getCedula());
                     r.setContrasena(datos.getContrasena());
                     r.setMensajeE("Valores validos");
                 } else {
+                    LOG.debug("No encontro valores para la conexion");
                     r.setCedula(datos.getCedula());
                     r.setContrasena(datos.getContrasena());
                     r.setMensajeE("Valores no validos");
@@ -77,6 +83,7 @@ public class Operaciones {
             }
             return r;
         } catch (SQLException e) {
+            LOG.debug("cath de la conexion");
             e.getStackTrace();
         }
         return null;

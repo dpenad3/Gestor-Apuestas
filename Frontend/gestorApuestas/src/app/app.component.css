@@ -1,8 +1,27 @@
-.footer {
-    background-color: rgba(255, 166, 0, 0.486);
-    width: 100%;
-    height: 80px;
-    bottom: 0;
-    position: fixed;
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+#pagina {
+    position: relative;
+    min-height: 100%;
+}
+
+#contenido {
+    padding-bottom: 50px;
+    /* este valor debe ser igual o mayor al alto del pie */
+}
+
+#pie {
+    height: 50px;
+    line-height: 50px;
+    background-color: rgb(255, 166, 0, 0.486);
     text-align: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
 }

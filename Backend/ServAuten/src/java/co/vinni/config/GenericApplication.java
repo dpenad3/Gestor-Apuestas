@@ -7,6 +7,7 @@ package co.vinni.config;
 
 
 import co.vinni.servicios.Operaciones;
+import co.vinni.servicios.Servregistro;
 import javax.ws.rs.ApplicationPath;
 import org.glassfish.jersey.server.ResourceConfig;
 /**
@@ -16,6 +17,7 @@ import org.glassfish.jersey.server.ResourceConfig;
 @ApplicationPath("app")
 public class GenericApplication extends ResourceConfig{
         public GenericApplication (){
+        register(Servregistro.class);    
         register(Operaciones.class);    // Estas son las clases que contienen los servicios
         register(new CORSFilter());
         register(new CORSRequestFilter());

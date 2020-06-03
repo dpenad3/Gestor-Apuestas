@@ -13,10 +13,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { PartidosComponent } from './componentes/partidos/partidos.component';
 import { TableModule } from 'primeng/table';
-import { PartidosService } from './servicios/partidos.service';
-import { InfoTarjetaComponent } from './componentes/info-tarjeta/info-tarjeta.component';
 import { CardModule } from 'primeng/card';
 import {DialogModule} from 'primeng/dialog';
+import { ModificarComponent } from './componentes/modificar/modificar.component';
 
 @NgModule({
   declarations: [
@@ -26,8 +25,8 @@ import {DialogModule} from 'primeng/dialog';
     SesionComponent,
     RegistroComponent,
     TarjetaComponent,
+    ModificarComponent,
     PartidosComponent,
-    InfoTarjetaComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +40,6 @@ import {DialogModule} from 'primeng/dialog';
   ],
   providers: [
     OperacionesService,
-    PartidosService,
   ],
   bootstrap: [AppComponent]
 })

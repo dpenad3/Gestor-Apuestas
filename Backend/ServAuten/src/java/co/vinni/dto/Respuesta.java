@@ -5,6 +5,8 @@
  */
 package co.vinni.dto;
 
+import java.util.List;
+
 /**
  *
  * @author gusta
@@ -16,7 +18,12 @@ public class Respuesta {
     private String apellido;
     private String contrasena;
     private String mensajeE;
+    private List<Registrodatos> registrodatos;
     private int codigo;
+
+    public Respuesta() {
+
+    }
 
     public int getCodigo() {
         return codigo;
@@ -25,7 +32,7 @@ public class Respuesta {
     public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
-
+    
     public int getCedula() {
         return cedula;
     }
@@ -65,8 +72,14 @@ public class Respuesta {
     public void setMensajeE(String mensajeE) {
         this.mensajeE = mensajeE;
     }
-    
-    public Respuesta() {
+
+    public List<Registrodatos> getRegistrodatos() {
+        return registrodatos;
+    }
+
+    public void setRegistrodatos(List<Registrodatos> registrodatos) {
+        this.registrodatos = registrodatos;
     }
     
+  
 }

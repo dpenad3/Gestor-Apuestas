@@ -1,12 +1,15 @@
-<app-navbar></app-navbar>
-<div class="container main-container">
-    <router-outlet></router-outlet>
-</div>
-<!-- Footer -->
-<div class="footer" style="height: 70px;">
-    <div class="footer-copyright text-center py-3">© 2020 Copyright: Gustavo Delgado - Daniela Peña<br>
+<div class="container" id="pagina">
+    <div class="container">
+        <app-navbar></app-navbar>
+    </div>
+    <div class="container main-container" id="contenido">
+        <router-outlet></router-outlet>
+    </div><br><br>
+    <!-- Footer -->
+    <div class="footer" id="pie">
+        © 2020 Copyright: Gustavo Delgado - Daniela Peña
         <a href="https://github.com/dpenad3/Gestor-Apuestas">
-            <img src="assets/imagenes/icono-github.png" width="40" height="30" class="d-inline-block align-top" alt=""> Repositorio
+            <img src="assets/imagenes/icono-github.png" width="40" height="30"> Repositorio
         </a>
     </div>
 </div>

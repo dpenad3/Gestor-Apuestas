@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { PartidosService } from '../../servicios/partidos.service';
 import { Router } from '@angular/router';
 import { Partido } from '../../entidades/partidos';
 import { RespuestaP } from '../../entidades/respuestaP';
+import { Tarjeta } from '../../entidades/tarjeta';
+import { OperacionesService } from '../../servicios/operaciones.service';
 
 @Component({
   selector: 'app-partidos',
@@ -20,8 +21,9 @@ export class PartidosComponent implements OnInit {
   porcentaje: number;
   dinero: number;
   idPartido: number;
+  miTarjeta: Tarjeta;
 
-  constructor(private servicio: PartidosService, private router: Router) { this.listaPartidos(); }
+  constructor(private servicio: OperacionesService, private router: Router) { this.infoTarjeta(); this.listaPartidos(); }
 
   ngOnInit() {
     this.cols = [
@@ -55,6 +57,7 @@ export class PartidosComponent implements OnInit {
       if  (this.miRespuesta.codigo === 0) {
         alert(this.miRespuesta.mensajeE);
         this.cerrarDialogo();
+        this.infoTarjeta();
       } else {
         alert(this.miRespuesta.mensajeE);
       }
@@ -71,5 +74,36 @@ export class PartidosComponent implements OnInit {
 
   cerrarDialogo() {
     this.dialogo = false;
+  }
+
+  infoTarjeta() {
+    const x: Promise<RespuestaP> = this.servicio.serDarTarjeta();
+    x.then((value: RespuestaP) => {
+      this.miRespuesta = value;
+      if  (this.miRespuesta.codigo === 0) {
+        this.miTarjeta = this.miRespuesta.info;
+        console.log(this.miRespuesta.mensajeE);
+      } else {
+        alert ('No se encuentra tarjeta registrada en el sistema');
+        this.router.navigate(['tarjeta']);
+      }
+    });
+  }
+
+  recargar() {
+    if (this.dinero === undefined) {
+      alert('Especificar monto de recarga');
+      return ;
+    }
+    const x: Promise<RespuestaP> = this.servicio.serRecargarTarjeta(this.dinero);
+    x.then((value: RespuestaP) => {
+      this.miRespuesta = value;
+      if  (this.miRespuesta.codigo === 0) {
+          alert(this.miRespuesta.mensajeE);
+          this.infoTarjeta();
+      } else {
+        alert(this.miRespuesta.mensajeE);
+      }
+    });
   }
 }
