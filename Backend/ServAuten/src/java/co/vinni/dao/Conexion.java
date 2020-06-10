@@ -28,7 +28,7 @@ public class Conexion {
             LOG.debug("Encontro el driver para la conexion a la base");
             Class.forName("org.postgresql.Driver");
             Connection conexion = DriverManager.getConnection(
-                    "jdbc:postgresql://127.0.0.1:5432/"+bd,
+                    "jdbc:postgresql://localhost:5432/"+bd,
                     usuario, clave);
             return conexion;
         } catch (ClassNotFoundException ex) {

@@ -6,13 +6,13 @@
                 {{ mensaje }}
             </div>
         </div>
-    </div>
+    </div><br><br><br>
     <div class="container">
         <div class="col1 ">
             <div class="card ">
                 <div class="front ">
                     <div class="type ">
-                        <img class="bankid " />
+                        <img class="bankid"/>
                     </div>
                     <span class="chip "></span>
                     <span class="card_number ">&#x25CF;&#x25CF;&#x25CF;&#x25CF; &#x25CF;&#x25CF;&#x25CF;&#x25CF; &#x25CF;&#x25CF;&#x25CF;&#x25CF; &#x25CF;&#x25CF;&#x25CF;&#x25CF; </span>
@@ -24,11 +24,11 @@
         <div class="col2 ">
             <form (submit)=registrar()>
                 <label>Número de tarjeta</label>
-                <input class="form-control " type="number " maxlength="10 " name="numero_tarjeta " placeholder="00000000000000 " [(ngModel)]="numero ">
+                <input class="form-control " type="number" name="numero_tarjeta " placeholder="00000000000000 " [(ngModel)]="numero ">
                 <label>Fecha de Vencimiento</label>
                 <input class="form-control " type="text " placeholder="YYYY-MM " name="fechaVen " [(ngModel)]="fecha ">
                 <label>Código de seguridad</label>
-                <input class="form-control " type="number " placeholder="123 " maxlength="10 " name="cv " [(ngModel)]="cv ">
+                <input class="form-control " type="number " placeholder="123 " maxlength="5" name="cv " [(ngModel)]="cv ">
                 <label>Dinero</label>
                 <input class="form-control " type="number " placeholder="100000 " name="dinero " [(ngModel)]="dinero ">
                 <button class="buy "><i class="material-icons " value="Registrar ">Registrar</i></button>

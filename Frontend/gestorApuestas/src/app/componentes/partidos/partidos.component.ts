@@ -20,6 +20,7 @@ export class PartidosComponent implements OnInit {
   idEquipo: number;
   porcentaje: number;
   dinero: number;
+  dineroA: number;
   idPartido: number;
   miTarjeta: Tarjeta;
 
@@ -46,12 +47,12 @@ export class PartidosComponent implements OnInit {
     });
   }
 
-  realizarApuesta(idPartido: number, dinero: number, porcentaje: number, idEquipo: number) {
-    if (this.dinero === undefined) {
+  realizarApuesta(idPartido: number, dineroA: number, porcentaje: number, idEquipo: number) {
+    if (this.dineroA === undefined) {
       alert('Diligencia la cantidad de dinero a apostar');
       return;
     }
-    const x: Promise<RespuestaP> = this.servicio.servRealizarApuesta(idPartido, dinero, porcentaje, idEquipo);
+    const x: Promise<RespuestaP> = this.servicio.servRealizarApuesta(idPartido, dineroA, porcentaje, idEquipo);
     x.then((value: RespuestaP) => {
       this.miRespuesta = value;
       if  (this.miRespuesta.codigo === 0) {
